@@ -1,15 +1,19 @@
+ /*Global stylings for font famiy and colors*/
  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 
 :root {
     --roperTeal: #079f6c;
     --roperGray: #454545;
+    --justWhite: #FFFFFF;
     --seethroughWhite: rgba(255,255,255,.5);
 }
 
 * {
     font-family: Quicksand, Verdana, sans-serif;
 }
+
+/*Background images of the white spheres*/
 
 body, header {
     background-color: #ecfffe;
@@ -26,6 +30,8 @@ header {
     top: 0;
     z-index: 2;
 }
+
+/*Navigation Links to the Sections of the Web Application*/
 
 nav ul {
     display: flex;
@@ -49,6 +55,8 @@ nav a:hover {
     background-color: var(--seethroughWhite);
     transition: .5s all ease;
 }
+
+/*Hero image and its related containers are for my face and name that are on the top of the page*/
 
 .hero {
     display: flex;
@@ -97,10 +105,12 @@ nav a:hover {
     left: 12.5%;
 }
 
+/*The main content of the page*/
+
 main {
     max-width: 1440px;
     padding: 36px;
-    margin: 0 auto 72px;
+    margin: 0 auto 48px;
     background: var(--seethroughWhite);
     border-radius: 12px;
 }
@@ -143,6 +153,10 @@ main img {
 
 section {
     padding: 96px 0;
+}
+
+section:nth-last-child(1) {
+    padding-bottom: 0;
 }
 
 .flexcontainer {
@@ -200,7 +214,7 @@ section aside, section article {
     width: 95%;
     height: 95%;
     border-radius: 100%;
-    border: 5px solid #FFFFFF;
+    border: 5px solid var(--justWhite);
     background-color: rgba(255,255,255,.75);
     transition: .5s all ease;
 }
@@ -225,14 +239,14 @@ h6 {
 }
 
 .navmiddle:hover h6 {
-    color: #FFFFFF;
+    color: var(--justWhite);
     transition: .5s all ease;
 }
 
 #thecontacts a {
     background-color: var(--roperTeal);
     padding: 36px 24px;
-    color: #FFFFFF;
+    color: var(--justWhite);
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -256,10 +270,12 @@ h6 {
 
 footer {
     background-color: var(--roperTeal);
-    color: #FFFFFF;
+    color: var(--justWhite);
     padding: 24px;
     text-align: center;
 }
+
+/*The media query to control how to Hero content looks depending on the window's aspect ratio */
 
 @media (max-aspect-ratio: 1/1) {
     .welcomeblock {
@@ -280,6 +296,8 @@ footer {
         text-align: center;
     }
 }
+
+/*Changes styling for various element to appear better in smaller resolutions*/
 
 @media screen and (max-width:1524px) {
     header {
@@ -336,8 +354,43 @@ footer {
         font-size: 24px;
     }
 
+    #theprojects a, #thecontacts a {
+        margin: 6px
+    }
+
+    .additional a {
+        width: calc(50% - 12px);
+    }
+
     #thecontacts a {
         width: calc(100% - 12px);
-        margin: 6px;
+    }
+}
+
+@media screen and (max-width: 484px) {
+    header {
+        padding: 8px 12px;
+        top:calc(100vh - 88px);
+        border-bottom: none;
+        border-top: 1px solid #AFAFAF;
+    }
+
+    .welcomeblock {
+        position: relative;
+        bottom: 30px;
+    }
+
+    nav li {
+        width: 50%;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    section {
+        padding: 36px 0;
     }
 }
