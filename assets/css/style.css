@@ -3,12 +3,12 @@
 
 :root {
     --roperTeal: #079f6c;
+    --roperGray: #454545;
+    --seethroughWhite: rgba(255,255,255,.5);
 }
 
 * {
     font-family: Quicksand, Verdana, sans-serif;
-    background: none;
-    transition: .25s all ease;
 }
 
 body, header {
@@ -27,35 +27,27 @@ header {
     z-index: 2;
 }
 
-header img {
-    max-height: 64px;
-}
-
-header h2 {
-    float: left;
-}
-
-nav {
-    float: right;
-}
-
 nav ul {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
     color: var(--roperTeal);
-    font-size: 1.5em;
+    font-size: 24px;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 4px;
+    transition: .5s all ease;
 }
 
 nav a:hover {
-    color: #454545;
-    background-color: rgba(255,255,255,.75);
+    color: var(--roperGray);
+    background-color: var(--seethroughWhite);
+    transition: .5s all ease;
 }
 
 .hero {
@@ -94,14 +86,14 @@ nav a:hover {
     height: 25vw;
     border-radius: 100%;
     display: block;
-    background-image: url(../images/dummyprofile-grn.png);
+    background: var(--roperTeal);
     position: relative;
 }
 
 .welcomeimage img {
     width: 75%;
     position: absolute;
-    top: -5%;
+    top: -6.5%;
     left: 12.5%;
 }
 
@@ -109,7 +101,7 @@ main {
     max-width: 1440px;
     padding: 36px;
     margin: 0 auto 72px;
-    background: rgba(255,255,255,.5);
+    background: var(--seethroughWhite);
     border-radius: 12px;
 }
 
@@ -124,9 +116,9 @@ main h2 {
 
 main h4, main h5 {
     margin: 12px 0;
-    color: #454545;
+    color: var(--roperGray);
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 main h5 {
@@ -134,9 +126,9 @@ main h5 {
 }
 
 main p, main li {
-    font-size: 24px;
-    color: #454545;
-    line-height: 1.75;
+    font-size: 20px;
+    color: var(--roperGray);
+    line-height: 1.5;
     text-align: justify;
 }
 
@@ -167,8 +159,9 @@ section aside, section article {
     border-radius: 100%;
 }
 
-#thebio aside {
+#thebio #profilepic {
     width: calc(33.333% - 24px);
+    margin: auto;
 }
 
 #thebio article {
@@ -189,13 +182,13 @@ section aside, section article {
     width: calc(50% - 24px);
 }
 
-#theworks a {
+#theprojects a {
     position: relative;
     line-height: 0;
     margin: 12px;
 }
 
-#theworks img {
+#theprojects img {
     border-radius: 12px;
 }
 
@@ -208,7 +201,13 @@ section aside, section article {
     height: 95%;
     border-radius: 100%;
     border: 5px solid #FFFFFF;
+    background-color: rgba(255,255,255,.75);
+    transition: .5s all ease;
+}
+
+.navmiddle:hover {
     background-color: rgba(255,255,255,.25);
+    transition: .5s all ease;
 }
 
 h6 {
@@ -216,19 +215,25 @@ h6 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #FFFFFF;
-    font-size: 36px;
+    color: var(--roperTeal);
+    font-size: 32px;
     font-weight: 500;
     text-transform: uppercase;
     text-align: center;
     line-height: 1.25;
+    transition: .5s all ease;
+}
+
+.navmiddle:hover h6 {
+    color: #FFFFFF;
+    transition: .5s all ease;
 }
 
 #thecontacts a {
     background-color: var(--roperTeal);
-    padding: 36px;
+    padding: 36px 24px;
     color: #FFFFFF;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
@@ -236,12 +241,13 @@ h6 {
     border-radius: 12px;
     margin: 12px;
     width: calc(25% - 24px);
+    transition: .5s all ease;
 }
 
 #thecontacts a:hover {
-    transition: .25s all ease;
+    transition: .5s all ease;
     color: var(--roperTeal);
-    background: #454545;
+    background: var(--roperGray);
 }
 
 #thecontacts .flexcontainer {
@@ -262,19 +268,20 @@ footer {
     }
 
     .welcomeimage {
-        width: 50vw;
-        height: 50vw;
+        width: 45vw;
+        height: 45vw;
         margin: auto;
     }
 
     .welcomeblock h1 {
         font-size: 15vw;
-        margin: 12px 0;
+        letter-spacing: 2vw;
+        margin: 24px 0;
         text-align: center;
     }
 }
 
-@media screen and (max-width:1512px) {
+@media screen and (max-width:1524px) {
     header {
         margin: 0;
         width: 100%;
@@ -283,12 +290,18 @@ footer {
 }
 
 @media screen and (max-width:1024px) {
-    #thebio aside, #thebio article {
+    nav a {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+
+    #thebio article, #thebio #profilepic {
         width: calc(100% - 24px);
     }
 
-    .featured, .additional {
-        width: 100%;
+    #thebio .profilepic {
+        max-width: 480px;
+        margin-bottom: 24px;
     }
 
     #thecontacts a {
@@ -297,25 +310,34 @@ footer {
 }
 
 @media screen and (max-width:768px) {
+    main {
+        padding: 24px 12px;
+    }
 
+    main h2 {
+        font-size: 36px;
+    }
+
+    main h4, main h5 {
+        font-size: 18px;
+    }
+
+    main p, main li {
+        font-size: 16px;
+        line-height: 1.65;
+        text-align: unset;
+    }
+
+    .featured, .additional {
+        width: 100%;
+    }
+
+    h6 {
+        font-size: 24px;
+    }
+
+    #thecontacts a {
+        width: calc(100% - 12px);
+        margin: 6px;
+    }
 }
-
-/*-SCROLLBAR WEBKIT-*/
-
-::-webkit-scrollbar {
-    width: 12px !important;
-      height: 12px !important;
-  }
-  
-  ::-webkit-scrollbar-track {
-      background: transparent !important;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-      background: #444444 !important;
-      border-radius: 2px !important;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-      background: #323232 !important; 
-  }	
